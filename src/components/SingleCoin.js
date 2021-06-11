@@ -32,17 +32,12 @@ const SingleCoin = () => {
           </Link>
           <div className='name'>
             <img src={coin.image.small} alt='coin-icon' />
-            <p>{coin.name}</p>
+            <p>{`${coin.name}  (${coin.symbol.toUpperCase()})`}</p>
           </div>
         </div>
         <div className='content'>
-          {/* Price Chart */}
-          <div className='chart-column'>
-            <PriceChart coinId={coin.id} />
-          </div>
-
-          {/* Details about coin */}
           <div className='details-column'>
+            {/* First details column */}
             <div className='market-data'>
               <p>Price:</p>
               <p className='data'>
@@ -51,6 +46,18 @@ const SingleCoin = () => {
                   ? parseFloat(coin.market_data.current_price.usd).toFixed(2)
                   : parseFloat(coin.market_data.current_price.usd).toFixed(4)}
               </p>
+              <p>Market cap:</p>
+              <p className='data'>${coin.market_data.market_cap.usd}</p>
+              <p>Total volume:</p>
+              <p className='data'>${coin.market_data.total_volume.usd}</p>
+              <p>Highest price (ath): </p>
+              <p className='data'>${coin.market_data.ath.usd}</p>
+            </div>
+          </div>
+
+          {/* Second details column */}
+          <div className='details-column'>
+            <div className='market-data'>
               <p>Low 24h:</p>
               <p className='data'>
                 $
@@ -90,12 +97,16 @@ const SingleCoin = () => {
               >
                 {parseFloat(coin.market_data.price_change_24h).toFixed(2)}$
               </p>
-              <p>Market cap:</p>
-              <p className='data'>${coin.market_data.market_cap.usd}</p>
-              <p>Total volume:</p>
-              <p className='data'>${coin.market_data.total_volume.usd}</p>
             </div>
           </div>
+        </div>
+        <div className='price-chart-container'>
+          <div className='time-buttons'>
+            <button>24h</button>
+            <button>last 30 days</button>
+            <button>last year</button>
+          </div>
+          <PriceChart coinId={coin.id} />
         </div>
       </div>
     )

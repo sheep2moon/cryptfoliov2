@@ -83,6 +83,11 @@ $accent-color: #0b1f73;
     align-items: center;
     grid-template-columns: 0.2fr 1fr 0.4fr 0.6fr;
   }
+  .coin-table-column-names {
+    & .market-cap {
+      display: none;
+    }
+  }
   .coin-table-row {
     & .market-cap {
       display: none;

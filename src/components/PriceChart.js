@@ -43,19 +43,32 @@ const PriceChart = ({ coinId }) => {
             <stop offset='75%' stopColor='#0b1f73' stopOpacity={0.05}></stop>
           </linearGradient>
         </defs>
-        <Area dataKey='price' stroke='#0b1f73' fill='url(#chart-fill)' />
-        <XAxis dataKey='day' />
+        <Area dataKey='price' stroke='#dbe6fd' fill='url(#chart-fill)' />
+        <XAxis dataKey='day' axisLine={false} />
         <YAxis
           dataKey='price'
           axisLine={false}
           tickLine={false}
           tickCount={8}
+          tickFormatter={(number) => `$${number.toFixed(2)}`}
         />
-        <Tooltip />
+        <Tooltip content={<ChartTooltip />} />
         <CartesianGrid opacity={0.05} vertical={false} />
       </AreaChart>
     </ResponsiveContainer>
   );
+};
+
+const ChartTooltip = ({ active, payload, label }) => {
+  if (active) {
+    return (
+      <div className='tooltip'>
+        <h4>{label}</h4>
+        <p>${payload[0].value.toFixed(4)}</p>
+      </div>
+    );
+  }
+  return null;
 };
 
 export default PriceChart;
