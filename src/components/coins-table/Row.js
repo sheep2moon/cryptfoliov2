@@ -1,0 +1,36 @@
+import React from 'react';
+
+const redColor = '#f73f52';
+const greenColor = '#39a6a3';
+
+const Row = ({ coin, index }) => {
+  return (
+    <div className='coin-table-row table-grid'>
+      <p className='index'>{index + 1}</p>
+      <div className='name'>
+        <img src={coin.image} alt='coin-icon' />
+        <p>{coin.name}</p>
+      </div>
+
+      <p className='current-price'>
+        $
+        {parseFloat(coin.current_price) > 1
+          ? parseFloat(coin.current_price).toFixed(2)
+          : parseFloat(coin.current_price).toFixed(4)}
+      </p>
+      <p
+        className='percentage-change'
+        style={
+          parseFloat(coin.price_change_percentage_24h).toFixed(2) > 0
+            ? { color: greenColor }
+            : { color: redColor }
+        }
+      >
+        {parseFloat(coin.price_change_percentage_24h).toFixed(2)}%
+      </p>
+      <p className='market-cap'>${coin.market_cap}</p>
+    </div>
+  );
+};
+
+export default Row;

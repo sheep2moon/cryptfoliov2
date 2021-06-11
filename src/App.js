@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/app.scss';
+import Sidebar from './components/Sidebar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import CryptoProvider from './contexts/cryptoContext';
+import CoinsList from './components/CoinsList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <CryptoProvider>
+          <Sidebar />
+          <div className='app-container'>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/coins-list' component={CoinsList} />
+              <Route exact path='/about' component={About} />
+            </Switch>
+          </div>
+        </CryptoProvider>
+      </Router>
+    </>
   );
 }
 

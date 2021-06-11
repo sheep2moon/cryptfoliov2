@@ -1,0 +1,65 @@
+$main-color: #070f30;
+$dark-color: #020925;
+$light-color: #04134e;
+$text-color: #dbe6fd;
+$accent-color: #0b1f73;
+
+.coins-table-container {
+  background: $main-color;
+  color: $text-color;
+  width: 100%;
+  max-width: 900px;
+}
+
+.table-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.2fr 1fr 0.4fr 0.6fr 0.6fr;
+}
+.coin-table-column-names {
+  background-color: $light-color;
+  padding: 10px 5px;
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 3px 4px -4px $text-color;
+  margin-bottom: 1rem;
+  & .current-price {
+    text-align: end;
+  }
+}
+.coin-table-row {
+  border-bottom: 1px solid $dark-color;
+  &:hover {
+    background: $light-color;
+  }
+  & .index {
+    text-align: center;
+  }
+  & .name {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    & img {
+      background: $text-color;
+      padding: 2px;
+      border-radius: 2px;
+      width: 40px;
+    }
+    & p {
+      margin-left: 1rem;
+    }
+  }
+  & .current-price {
+    text-align: right;
+  }
+  & .percentage-change {
+    text-align: center;
+  }
+  & .market-cap {
+    margin-right: 10px;
+    text-align: end;
+  }
+}
