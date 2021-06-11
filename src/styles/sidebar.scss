@@ -12,6 +12,7 @@ $accent-color: #0b1f73;
   transition: width 200ms ease;
   overflow: hidden;
   box-shadow: -5px 0 8px $text-color;
+  z-index: 2;
   & ul {
     list-style: none;
     display: flex;

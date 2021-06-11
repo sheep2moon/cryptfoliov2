@@ -5,6 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import CryptoProvider from './contexts/cryptoContext';
 import CoinsList from './components/CoinsList';
+import SingleCoin from './components/SingleCoin';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route exact path='/' component={Home} />
               <Route exact path='/coins-list' component={CoinsList} />
               <Route exact path='/about' component={About} />
+              <Route path='/coin/:id' component={SingleCoin} />
             </Switch>
           </div>
         </CryptoProvider>

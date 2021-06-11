@@ -19,12 +19,17 @@ const CryptoProvider = ({ children }) => {
     setIsLoading(false);
   };
 
+  const getSingleCoin = (id) => {
+    return allCoins.filter((coin) => coin.id === id)[0];
+  };
+
   useEffect(() => {
     getCoins();
   }, []);
 
   const value = {
     allCoins,
+    getSingleCoin,
   };
 
   return (

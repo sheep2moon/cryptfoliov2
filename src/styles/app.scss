@@ -1,3 +1,9 @@
+$main-color: #070f30;
+$dark-color: #020925;
+$light-color: #04134e;
+$text-color: #dbe6fd;
+$accent-color: #0b1f73;
+
 @media screen and (min-width: 600px) {
   .app-container {
     margin-left: 5rem;
@@ -16,4 +22,7 @@ body::-webkit-scrollbar-thumb {
 // making scrolbar does not take space
 html {
   overflow-y: overlay;
+}
+a {
+  color: $text-color;
 }

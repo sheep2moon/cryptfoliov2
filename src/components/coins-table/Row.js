@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const redColor = '#f73f52';
 const greenColor = '#39a6a3';
@@ -6,6 +7,7 @@ const greenColor = '#39a6a3';
 const Row = ({ coin, index }) => {
   return (
     <div className='coin-table-row table-grid'>
+      <Link to={`/coin/${coin.id}`} className='single-coin-link' />
       <p className='index'>{index + 1}</p>
       <div className='name'>
         <img src={coin.image} alt='coin-icon' />
