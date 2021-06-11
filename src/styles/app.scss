@@ -12,3 +12,8 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
+
+// making scrolbar does not take space
+html {
+  overflow-y: overlay;
+}

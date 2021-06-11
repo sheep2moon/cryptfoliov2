@@ -8,7 +8,7 @@ $accent-color: #0b1f73;
   background: $main-color;
   color: $text-color;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 .table-grid {
@@ -27,6 +27,10 @@ $accent-color: #0b1f73;
   box-shadow: 0 3px 4px -4px $text-color;
   margin-bottom: 1rem;
   & .current-price {
+    text-align: end;
+  }
+  & .market-cap {
+    margin-right: 10px;
     text-align: end;
   }
 }
@@ -61,5 +65,18 @@ $accent-color: #0b1f73;
   & .market-cap {
     margin-right: 10px;
     text-align: end;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .table-grid {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 0.2fr 1fr 0.4fr 0.6fr;
+  }
+  .coin-table-row {
+    & .market-cap {
+      display: none;
+    }
   }
 }

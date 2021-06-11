@@ -11,7 +11,7 @@ const Table = ({ coins }) => {
         <span></span>
         <p className='current-price'>price</p>
         <p>24h change</p>
-        <p>market cap</p>
+        <p className='market-cap'>market cap</p>
       </div>
       <div className='rows-container'>
         {coins.map((coin, index) => (
