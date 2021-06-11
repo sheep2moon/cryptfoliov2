@@ -40,10 +40,20 @@ $accent-color: #0b1f73;
     height: 100%;
     & .chart-column {
       width: 50%;
-      background: $accent-color;
+      padding: 1rem;
     }
     & .details-column {
       width: 50%;
+      & .market-data {
+        font-size: 1.2rem;
+        padding: 1rem;
+        display: grid;
+        row-gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        & .data {
+          text-align: end;
+        }
+      }
     }
   }
 }

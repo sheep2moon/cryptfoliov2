@@ -6,7 +6,7 @@ const Table = ({ coins }) => {
   return (
     <div className='coins-table-container'>
       <div className='coin-table-column-names table-grid'>
-        <p>rank</p>
+        <p>#</p>
         {/* placeholder for css grid */}
         <span></span>
         <p className='current-price'>price</p>
