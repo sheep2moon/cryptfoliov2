@@ -12,6 +12,7 @@ const SingleCoin = () => {
   const { id } = useParams();
   const url = `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`;
   const [coin, setCoin] = useState(null);
+  const [days, setDays] = useState(30);
 
   useEffect(() => {
     const fetchCoin = async () => {
@@ -21,7 +22,7 @@ const SingleCoin = () => {
       console.log(coinData);
     };
     fetchCoin();
-  }, []);
+  }, [url]);
 
   return (
     coin && (
@@ -102,11 +103,26 @@ const SingleCoin = () => {
         </div>
         <div className='price-chart-container'>
           <div className='time-buttons'>
-            <button>24h</button>
-            <button>last 30 days</button>
-            <button>last year</button>
+            <button
+              style={days === 1 ? { background: '#ffffff15' } : {}}
+              onClick={() => setDays(1)}
+            >
+              24h
+            </button>
+            <button
+              style={days === 30 ? { background: '#ffffff15' } : {}}
+              onClick={() => setDays(30)}
+            >
+              last 30 days
+            </button>
+            <button
+              style={days === 365 ? { background: '#ffffff15' } : {}}
+              onClick={() => setDays(365)}
+            >
+              last year
+            </button>
           </div>
-          <PriceChart coinId={coin.id} />
+          <PriceChart coinId={coin.id} days={days} />
         </div>
       </div>
     )

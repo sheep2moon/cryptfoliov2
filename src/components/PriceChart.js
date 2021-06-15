@@ -9,16 +9,21 @@ import {
   CartesianGrid,
 } from 'recharts';
 
-const PriceChart = ({ coinId }) => {
+const PriceChart = ({ coinId, days }) => {
   const [data, setData] = useState();
+  let interval = 'hourly';
+  if (days === 365) interval = 'daily';
+  if (days === 1) interval = 'minutely';
 
-  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=30&interval=daily`;
+  const url = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=${days}&interval=${interval}`;
 
   const formatData = (data) => {
     let formattedData = [];
     data.prices.map((step) => {
       let day = new Date(step[0]);
-      day = day.toLocaleDateString().substring(0, 5);
+      if (days === 1) day = day.toLocaleTimeString().substring(0, 5);
+      else if (days === 30) day = day.toLocaleDateString().substring(0, 5);
+      else if (days === 365) day = day.getFullYear();
       let price = step[1];
       formattedData.push({ day, price });
     });
@@ -32,7 +37,7 @@ const PriceChart = ({ coinId }) => {
       formatData(data);
     };
     fetchData();
-  }, []);
+  }, [url]);
 
   return (
     <ResponsiveContainer width='100%' height={400}>
@@ -44,8 +49,9 @@ const PriceChart = ({ coinId }) => {
           </linearGradient>
         </defs>
         <Area dataKey='price' stroke='#dbe6fd' fill='url(#chart-fill)' />
-        <XAxis dataKey='day' axisLine={false} />
+        <XAxis dataKey='day' axisLine={false} domain={['auto', 'auto']} />
         <YAxis
+          domain={['auto', 'auto']}
           dataKey='price'
           axisLine={false}
           tickLine={false}
@@ -60,7 +66,7 @@ const PriceChart = ({ coinId }) => {
 };
 
 const ChartTooltip = ({ active, payload, label }) => {
-  if (active) {
+  if (active && payload) {
     return (
       <div className='tooltip'>
         <h4>{label}</h4>
