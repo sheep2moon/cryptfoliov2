@@ -4,6 +4,7 @@ import { BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import '../styles/single-coin.scss';
 import PriceChart from './PriceChart';
+import AddToPortfolio from './AddToPortfolio';
 
 const redColor = '#f73f52';
 const greenColor = '#39a6a3';
@@ -45,7 +46,7 @@ const SingleCoin = () => {
                 $
                 {parseFloat(coin.market_data.current_price.usd) > 10
                   ? parseFloat(coin.market_data.current_price.usd).toFixed(2)
-                  : parseFloat(coin.market_data.current_price.usd).toFixed(4)}
+                  : parseFloat(coin.market_data.current_price.usd).toFixed(6)}
               </p>
               <p>Market cap:</p>
               <p className='data'>${coin.market_data.market_cap.usd}</p>
@@ -64,14 +65,14 @@ const SingleCoin = () => {
                 $
                 {parseFloat(coin.market_data.low_24h.usd) > 1
                   ? parseFloat(coin.market_data.low_24h.usd).toFixed(2)
-                  : parseFloat(coin.market_data.low_24h.usd).toFixed(4)}
+                  : parseFloat(coin.market_data.low_24h.usd).toFixed(6)}
               </p>
               <p>High 24h:</p>
               <p className='data'>
                 $
                 {parseFloat(coin.market_data.high_24h.usd) > 10
                   ? parseFloat(coin.market_data.high_24h.usd).toFixed(2)
-                  : parseFloat(coin.market_data.high_24h.usd).toFixed(4)}
+                  : parseFloat(coin.market_data.high_24h.usd).toFixed(6)}
               </p>
               <p>Change 24h (%):</p>
               <p
@@ -123,6 +124,7 @@ const SingleCoin = () => {
             </button>
           </div>
           <PriceChart coinId={coin.id} days={days} />
+          <AddToPortfolio coin={coin} />
         </div>
       </div>
     )

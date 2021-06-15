@@ -44,6 +44,9 @@ $accent-color: #0b1f73;
     width: 100%;
     max-width: 1400px;
     margin: auto;
+    background: $light-color;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     & .details-column {
       width: 50%;
       & .market-data {

@@ -12,7 +12,7 @@ const Sidebar = () => {
         <li>
           <Link to='/coins-list'>
             <AiOutlineStock />
-            <p>Offer</p>
+            <p>Coin List</p>
           </Link>
         </li>
         <li>

@@ -1,0 +1,56 @@
+$main-color: #070f30;
+$dark-color: #020925;
+$light-color: #04134e;
+$text-color: #dbe6fd;
+$accent-color: #0b1f73;
+
+.add-to-portfolio-container {
+  width: 100%;
+  margin: 2rem 0;
+  background: $light-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & p {
+    font-size: 1.2rem;
+    margin: 0.5rem;
+  }
+  & .add-to-portfolio-form {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+
+    & button {
+      background: $accent-color;
+      border: 1px solid $text-color;
+      border-radius: 0.25rem;
+      color: $text-color;
+      padding: 1rem 3rem;
+
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background: $light-color;
+        box-shadow: 0 0 5px $text-color;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .add-to-portfolio-form {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+@media screen and (max-width: 800px) {
+  .add-to-portfolio-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & button {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+  }
+}
