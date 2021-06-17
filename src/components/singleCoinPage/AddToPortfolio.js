@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import '../styles/add-to-portfolio.scss';
+import '../../styles/add-to-portfolio.scss';
 
 const AddToPortfolio = ({ coin }) => {
   const quantityRef = useRef();
@@ -8,6 +8,7 @@ const AddToPortfolio = ({ coin }) => {
   const handleAddToPortfolio = () => {
     const quantity = quantityRef.current.value;
     const boughtFor = quantityRef.current.value;
+    console.log(quantity, boughtFor);
   };
 
   return (

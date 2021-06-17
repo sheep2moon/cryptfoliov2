@@ -4,7 +4,7 @@ import { BiLeftArrow } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import '../../styles/single-coin.scss';
 import PriceChart from './PriceChart';
-import AddToPortfolio from '../AddToPortfolio';
+import AddToPortfolio from './AddToPortfolio';
 import MarketData from './MarketData';
 
 const SingleCoin = () => {
@@ -18,7 +18,6 @@ const SingleCoin = () => {
       const response = await fetch(url);
       const coinData = await response.json();
       setCoin(coinData);
-      console.log(coinData);
     };
     fetchCoin();
   }, [url]);
@@ -31,6 +30,7 @@ const SingleCoin = () => {
             <Link to='/coins-list'>
               <BiLeftArrow />
             </Link>
+
             <div className='name'>
               <img src={coin.image.small} alt='coin-icon' />
               <p>{`${coin.name}  (${coin.symbol.toUpperCase()})`}</p>
@@ -59,8 +59,8 @@ const SingleCoin = () => {
               </button>
             </div>
             <PriceChart coinId={coin.id} days={days} />
-            <AddToPortfolio coin={coin} />
           </div>
+          <AddToPortfolio coin={coin} />
         </div>
       </div>
     )

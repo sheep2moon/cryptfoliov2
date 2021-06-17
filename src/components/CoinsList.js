@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useCrypto } from '../contexts/cryptoContext';
 import Table from './coins-table/Table';
 import '../styles/coins-list.scss';
