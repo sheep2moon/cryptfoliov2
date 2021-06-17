@@ -6,30 +6,27 @@ $accent-color: #0b1f73;
 
 .single-coin-container {
   width: 100%;
+  max-width: 1400px;
   height: 100%;
   margin: auto;
+  border: 1px solid $text-color;
+  border-radius: 1rem;
 
   & .top-bar {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    position: relative;
-    height: 4rem;
-    background: $main-color;
     border-bottom: 2px solid #ffffff20;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
     & svg {
       width: 3rem;
       height: 3rem;
     }
     & .name {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
+      margin-left: 2rem;
       & img {
         margin-right: 1rem;
       }
@@ -42,13 +39,13 @@ $accent-color: #0b1f73;
   & .content {
     display: flex;
     width: 100%;
-    max-width: 1400px;
     margin: auto;
-    background: $light-color;
+
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     & .details-column {
       width: 50%;
+      background: $light-color;
       & .market-data {
         font-size: 1.2rem;
         padding: 1rem;
@@ -64,22 +61,26 @@ $accent-color: #0b1f73;
 
   & .price-chart-container {
     max-width: 1400px;
-    padding: 1rem;
     margin: auto;
 
+    & .tooltip {
+      background: $accent-color;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+    }
     & .time-buttons {
       width: 100%;
       display: flex;
       justify-content: flex-end;
-      gap: 1rem;
 
       & button {
         border: none;
-        background: $light-color;
+        background: $accent-color;
         padding: 0.5rem;
         color: $text-color;
+        margin: 0.5rem 0.5rem 0.5rem 0;
         &:hover {
-          background: $accent-color;
+          box-shadow: 0 0 5px $text-color;
           cursor: pointer;
         }
       }
@@ -89,6 +90,7 @@ $accent-color: #0b1f73;
 
 @media screen and (max-width: 800px) {
   .single-coin-container {
+    border: none;
     & .content {
       display: flex;
       flex-direction: column;

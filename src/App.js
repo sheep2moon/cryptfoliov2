@@ -5,7 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import CryptoProvider from './contexts/cryptoContext';
 import CoinsList from './components/CoinsList';
-import SingleCoin from './components/SingleCoin';
+import SingleCoin from './components/singleCoinPage/SingleCoin';
 import FirebaseProvider from './contexts/firebaseContext';
 import Login from './components/Login';
 import Register from './components/Register';

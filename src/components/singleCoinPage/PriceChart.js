@@ -19,7 +19,7 @@ const PriceChart = ({ coinId, days }) => {
 
   const formatData = (data) => {
     let formattedData = [];
-    data.prices.map((step) => {
+    data.prices.forEach((step) => {
       let day = new Date(step[0]);
       if (days === 1) day = day.toLocaleTimeString().substring(0, 5);
       else if (days === 30) day = day.toLocaleDateString().substring(0, 5);
@@ -41,7 +41,10 @@ const PriceChart = ({ coinId, days }) => {
 
   return (
     <ResponsiveContainer width='100%' height={400}>
-      <AreaChart data={data}>
+      <AreaChart
+        data={data}
+        margin={{ top: 0, right: 10, bottom: 0, left: 25 }}
+      >
         <defs>
           <linearGradient id='chart-fill' x1='0' y1='0' x='0' y2='1'>
             <stop offset='0%' stopColor='#0b1f73' stopOpacity={0.4}></stop>
