@@ -1,0 +1,61 @@
+$main-color: #070f30;
+$dark-color: #020925;
+$light-color: #04134e;
+$text-color: #dbe6fd;
+$accent-color: #0b1f73;
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin: 0.25rem 0.5rem;
+  width: 100%;
+  max-width: 600px;
+  & input {
+    padding: 0.75rem 0.25rem;
+    border: none;
+    background: $text-color;
+  }
+}
+.btn {
+  background: $accent-color;
+  border: 1px solid $text-color;
+  border-radius: 0.25rem;
+  color: $text-color;
+  padding: 1rem 3rem;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background: $light-color;
+    box-shadow: 0 0 5px $text-color;
+  }
+}
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  & h2 {
+    margin-bottom: 2rem;
+  }
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    & .btn {
+      margin-top: 1rem;
+    }
+  }
+  & .not-register {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    & p {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import './styles/app.scss';
+import './styles/forms.scss';
 import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
@@ -10,6 +11,7 @@ import FirebaseProvider from './contexts/firebaseContext';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import { ImOffice } from 'react-icons/im';
 
 function App() {
   return (

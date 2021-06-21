@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <div className='main-container'>
       <div className='login-form-container'>
-        <p>Sign in</p>
+        <h2>Sign in</h2>
         <form action='' onSubmit={(e) => handleSubmit(e)}>
           <div className='input-field'>
             <label htmlFor='email'>email</label>
@@ -45,9 +45,11 @@ const Login = () => {
           </div>
           <div className='input-field'>
             <label htmlFor='password'>password</label>
-            <input ref={passwordRef} type='text' name='password' />
+            <input ref={passwordRef} type='password' name='password' />
           </div>
-          <button type='submit'>Login</button>
+          <button className='btn' type='submit'>
+            Login
+          </button>
           {error && <p>{error}</p>}
         </form>
 

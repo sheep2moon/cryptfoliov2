@@ -43,23 +43,32 @@ const Register = () => {
     );
   }
   return (
-    <div>
-      <form action='' onSubmit={(e) => handleSubmit(e)}>
-        <div className='input-field'>
-          <label htmlFor='email'>Email</label>
-          <input ref={emailRef} type='text' name='email' />
-        </div>
-        <div className='input-field'>
-          <label htmlFor='password'>Password</label>
-          <input ref={passwordRef} type='text' name='password' />
-        </div>
-        <div className='input-field'>
-          <label htmlFor='confirmPassword'>Confirm Password</label>
-          <input ref={confirmPasswordRef} type='text' name='confirmPassword' />
-        </div>
-        <button type='submit'>Register</button>
-        {error && <p>{error}</p>}
-      </form>
+    <div className='main-container'>
+      <div className='login-form-container'>
+        <h2>Register </h2>
+        <form action='' onSubmit={(e) => handleSubmit(e)}>
+          <div className='input-field'>
+            <label htmlFor='email'>Email</label>
+            <input ref={emailRef} type='text' name='email' />
+          </div>
+          <div className='input-field'>
+            <label htmlFor='password'>Password</label>
+            <input ref={passwordRef} type='password' name='password' />
+          </div>
+          <div className='input-field'>
+            <label htmlFor='confirmPassword'>Confirm Password</label>
+            <input
+              ref={confirmPasswordRef}
+              type='password'
+              name='confirmPassword'
+            />
+          </div>
+          <button className='btn' type='submit'>
+            Register
+          </button>
+          {error && <p>{error}</p>}
+        </form>
+      </div>
     </div>
   );
 };

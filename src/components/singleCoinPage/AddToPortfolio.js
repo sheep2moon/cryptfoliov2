@@ -23,7 +23,9 @@ const AddToPortfolio = ({ coin }) => {
           <label htmlFor='price'>Bought for</label>
           <input ref={priceRef} type='number' name='price' />
         </div>
-        <button onClick={handleAddToPortfolio}>Add</button>
+        <button className='btn' onClick={handleAddToPortfolio}>
+          Add
+        </button>
       </div>
     </div>
   );

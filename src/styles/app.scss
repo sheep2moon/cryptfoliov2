@@ -31,18 +31,6 @@ a {
   color: $text-color;
 }
 
-.input-field {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 0.5rem;
-  & input {
-    padding: 1rem 0.25rem;
-    border: none;
-    background: $text-color;
-  }
-}
-
 .main-container {
   min-height: 100vh;
   display: flex;
