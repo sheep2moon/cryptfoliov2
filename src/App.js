@@ -9,6 +9,7 @@ import SingleCoin from './components/singleCoinPage/SingleCoin';
 import FirebaseProvider from './contexts/firebaseContext';
 import Login from './components/Login';
 import Register from './components/Register';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/coin/:id' component={SingleCoin} />
                 <Route path='/login' component={Login} />
                 <Route path='/register' component={Register} />
+                <Route path='/profile' component={Profile} />
               </Switch>
             </div>
           </CryptoProvider>

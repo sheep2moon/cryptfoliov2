@@ -4,8 +4,13 @@ import { Link } from 'react-router-dom';
 import { ImHome } from 'react-icons/im';
 import { BsFillInfoSquareFill } from 'react-icons/bs';
 import { RiMessage2Fill } from 'react-icons/ri';
+import { BsPersonSquare } from 'react-icons/bs';
+import { FiLogIn } from 'react-icons/fi';
 import { AiOutlineStock } from 'react-icons/ai';
+import { useFirebase } from '../contexts/firebaseContext';
 const Sidebar = () => {
+  const { user } = useFirebase();
+  console.log(user);
   return (
     <nav className='sidebar'>
       <ul>
@@ -32,6 +37,19 @@ const Sidebar = () => {
             <RiMessage2Fill />
             <p>Contact</p>
           </Link>
+        </li>
+        <li>
+          {user ? (
+            <Link to='/profile'>
+              <BsPersonSquare />
+              <p>Account</p>
+            </Link>
+          ) : (
+            <Link to='/login'>
+              <FiLogIn />
+              <p>Login</p>
+            </Link>
+          )}
         </li>
       </ul>
     </nav>

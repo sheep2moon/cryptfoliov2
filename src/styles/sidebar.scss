@@ -46,6 +46,9 @@ $accent-color: #0b1f73;
         }
       }
     }
+    & li:last-child {
+      margin-top: auto;
+    }
   }
 }
 

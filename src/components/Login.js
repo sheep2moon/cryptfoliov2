@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useFirebase } from '../contexts/firebaseContext';
 import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const emailRef = useRef();
@@ -24,28 +25,37 @@ const Login = () => {
 
   if (user) {
     return (
-      <div className='logout-container'>
-        <p>You are already logged in</p>
-        <p>Want to logout?</p>
-        <button onClick={logout}>Logout</button>
+      <div className='main-container'>
+        <div className='logout-container'>
+          <p>You are already logged in</p>
+          <p>Want to logout?</p>
+          <button onClick={logout}>Logout</button>
+        </div>
       </div>
     );
   }
   return (
-    <div className='login-form-container'>
-      <p>Sign in</p>
-      <form action='' onSubmit={(e) => handleSubmit(e)}>
-        <div className='input-field'>
-          <label htmlFor='email'>email</label>
-          <input ref={emailRef} type='text' name='email' />
+    <div className='main-container'>
+      <div className='login-form-container'>
+        <p>Sign in</p>
+        <form action='' onSubmit={(e) => handleSubmit(e)}>
+          <div className='input-field'>
+            <label htmlFor='email'>email</label>
+            <input ref={emailRef} type='text' name='email' />
+          </div>
+          <div className='input-field'>
+            <label htmlFor='password'>password</label>
+            <input ref={passwordRef} type='text' name='password' />
+          </div>
+          <button type='submit'>Login</button>
+          {error && <p>{error}</p>}
+        </form>
+
+        <div className='not-register'>
+          <p>don't have an account?</p>
+          <Link to='/register'>Register</Link>
         </div>
-        <div className='input-field'>
-          <label htmlFor='password'>password</label>
-          <input ref={passwordRef} type='text' name='password' />
-        </div>
-        <button type='submit'>Login</button>
-        {error && <p>{error}</p>}
-      </form>
+      </div>
     </div>
   );
 };
