@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BiLeftArrow } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+
 import '../../styles/single-coin.scss';
 import PriceChart from './PriceChart';
 import AddToPortfolio from './AddToPortfolio';

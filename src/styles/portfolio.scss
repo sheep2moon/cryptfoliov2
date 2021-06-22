@@ -1,0 +1,31 @@
+$main-color: #070f30;
+$dark-color: #020925;
+$light-color: #04134e;
+$text-color: #dbe6fd;
+$accent-color: #0b1f73;
+
+.portfolio-container {
+  width: 100%;
+  max-width: 1400px;
+}
+.portfolio-list {
+  width: 100%;
+  background-color: $main-color;
+}
+
+.column-names,
+.row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 0.4fr 0.4fr 0.2fr 0.2fr 0.1fr 0.1fr;
+  align-items: center;
+  padding: 0.25rem 0.25rem;
+}
+.column-names {
+  background-color: $light-color;
+}
+.row {
+  & img {
+    width: 40px;
+  }
+}

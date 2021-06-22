@@ -37,4 +37,25 @@ a {
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+  position: relative;
+}
+
+.bottom-alert {
+  background-color: $text-color;
+  color: $dark-color;
+  font-weight: bold;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 300px;
+  top: 1rem;
+  right: -20rem;
+  height: 30px;
+  transition: all 0.2s ease-in;
+}
+
+.bottom-alert-active {
+  right: 2rem;
 }
