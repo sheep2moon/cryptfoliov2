@@ -19,6 +19,12 @@ $accent-color: #0b1f73;
     align-items: center;
     border-bottom: 2px solid #ffffff20;
     padding: 0.5rem 1rem;
+    & button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: $text-color;
+    }
     & svg {
       width: 3rem;
       height: 3rem;

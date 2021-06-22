@@ -11,7 +11,8 @@ import FirebaseProvider from './contexts/firebaseContext';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import { ImOffice } from 'react-icons/im';
+import PrivateRoute from './PrivateRoute';
+import Portfolio from './components/portfolioPage/Portfolio';
 
 function App() {
   return (
@@ -24,11 +25,12 @@ function App() {
               <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/coins-list' component={CoinsList} />
+                <PrivateRoute exact path='/portfolio' component={Portfolio} />
                 <Route exact path='/about' component={About} />
                 <Route path='/coin/:id' component={SingleCoin} />
                 <Route path='/login' component={Login} />
                 <Route path='/register' component={Register} />
-                <Route path='/profile' component={Profile} />
+                <PrivateRoute path='/profile' component={Profile} />
               </Switch>
             </div>
           </CryptoProvider>

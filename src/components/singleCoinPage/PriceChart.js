@@ -33,6 +33,7 @@ const PriceChart = ({ coinId, days }) => {
       formatData(data);
     };
     fetchData();
+    return () => setData({});
   }, [url]);
 
   return (

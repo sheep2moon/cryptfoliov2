@@ -18,10 +18,21 @@ $accent-color: #0b1f73;
   & .add-to-portfolio-form {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 1rem 0;
+    & .quantity-buttons {
+      display: flex;
+    }
   }
 }
-
+.paste-input-btn {
+  margin-top: 5px;
+  background: $accent-color;
+  color: $text-color;
+  border: 1px solid #000;
+  border-radius: 0;
+  width: 100%;
+}
 @media screen and (min-width: 800px) {
   .add-to-portfolio-form {
     flex-direction: row;
