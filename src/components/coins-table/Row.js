@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const redColor = '#f73f52';
-const greenColor = '#39a6a3';
-
 const Row = ({ coin, index }) => {
   return (
     <div className='coin-table-row table-grid'>
@@ -21,11 +18,10 @@ const Row = ({ coin, index }) => {
           : parseFloat(coin.current_price).toFixed(4)}
       </p>
       <p
-        className='percentage-change'
-        style={
+        className={
           parseFloat(coin.price_change_percentage_24h).toFixed(2) > 0
-            ? { color: greenColor }
-            : { color: redColor }
+            ? 'percentage-change price-green'
+            : 'percentage-change price-red'
         }
       >
         {parseFloat(coin.price_change_percentage_24h).toFixed(2)}%

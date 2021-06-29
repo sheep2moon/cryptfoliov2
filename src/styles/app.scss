@@ -3,6 +3,8 @@ $dark-color: #020925;
 $light-color: #04134e;
 $text-color: #dbe6fd;
 $accent-color: #0b1f73;
+$priceRed: #f73f52;
+$priceGreen: #39a6a3;
 
 @media screen and (min-width: 600px) {
   .app-container {
@@ -29,6 +31,13 @@ html {
 }
 a {
   color: $text-color;
+}
+
+.price-red {
+  color: $priceRed;
+}
+.price-green {
+  color: $priceGreen;
 }
 
 .main-container {

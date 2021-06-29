@@ -1,8 +1,5 @@
 import React from 'react';
 
-const redColor = '#f73f52';
-const greenColor = '#39a6a3';
-
 const MarketData = ({ coin }) => {
   return (
     <div className='content'>
@@ -44,11 +41,10 @@ const MarketData = ({ coin }) => {
           </p>
           <p>Change 24h (%):</p>
           <p
-            className='data'
-            style={
+            className={
               parseFloat(coin.market_data.price_change_percentage_24h) > 0
-                ? { color: greenColor }
-                : { color: redColor }
+                ? 'data price-green'
+                : 'data price-red'
             }
           >
             {parseFloat(coin.market_data.price_change_percentage_24h).toFixed(
@@ -58,11 +54,10 @@ const MarketData = ({ coin }) => {
           </p>
           <p>Change 24h ($):</p>
           <p
-            className='data'
-            style={
+            className={
               parseFloat(coin.market_data.price_change_percentage_24h) > 0
-                ? { color: greenColor }
-                : { color: redColor }
+                ? 'data price-green'
+                : 'data price-red'
             }
           >
             {parseFloat(coin.market_data.price_change_24h).toFixed(2)}$

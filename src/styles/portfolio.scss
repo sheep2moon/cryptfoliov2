@@ -17,15 +17,57 @@ $accent-color: #0b1f73;
 .row {
   width: 100%;
   display: grid;
-  grid-template-columns: 0.2fr 0.2fr 0.4fr 0.4fr 0.2fr 0.2fr 0.1fr 0.1fr;
+  grid-template-columns: 0.1fr 0.2fr 0.3fr 0.3fr 0.2fr 0.2fr 0.1fr 0.1fr;
   align-items: center;
   padding: 0.25rem 0.25rem;
 }
 .column-names {
   background-color: $light-color;
+  padding: 0.5rem 0.25rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 3px 4px -4px $text-color;
+  & p {
+    text-align: end;
+  }
+  & .name {
+    text-align: start;
+  }
+  & .controls {
+    text-align: center;
+  }
 }
-.row {
+.portfolio-list .row {
   & img {
     width: 40px;
+    margin: 0.25rem;
+  }
+  & .name {
+    text-align: start;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  & .current-price {
+    text-align: end;
+  }
+  & .bought-for {
+    text-align: end;
+  }
+  & .quantity {
+    text-align: end;
+  }
+  & .profit {
+    text-align: end;
+  }
+  & button {
+    background: none;
+    border: none;
+    color: $text-color;
+    padding: 0.5rem 0;
+    margin: 0.5rem;
+    &:hover {
+      cursor: pointer;
+      background: #ffffff20;
+    }
   }
 }
