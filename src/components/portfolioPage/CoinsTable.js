@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
+import Alert from '../Alert';
+import EditModal from './EditModal';
 
 const CoinsTable = ({ docs, coins }) => {
   console.log(docs, coins);
+  const [isEdit, setIsEdit] = useState(false);
+  const [editCoin, setEditCoin] = useState(null);
+  const [alertText, setAlertText] = useState('');
+
+  const handleEditButton = (coin) => {
+    console.log(coin);
+    setIsEdit(true);
+    setEditCoin(coin);
+  };
 
   return (
     <div className='portfolio-list'>
+      {isEdit && (
+        <EditModal
+          setIsEdit={setIsEdit}
+          coin={editCoin}
+          setAlertText={setAlertText}
+        />
+      )}
+      <Alert text={alertText} />
       <div className='column-names'>
         <span></span>
         <p className='name'>coin</p>
@@ -39,7 +58,7 @@ const CoinsTable = ({ docs, coins }) => {
               >
                 ${priceDiff.toFixed(3)}
               </p>
-              <button className='edit'>
+              <button className='edit' onClick={() => handleEditButton(doc)}>
                 <AiFillEdit />
               </button>
               <button className='delete'>

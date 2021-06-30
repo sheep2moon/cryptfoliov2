@@ -16,8 +16,10 @@ const AddToPortfolio = ({ coin }) => {
     const quantity = quantityRef.current.value;
     const boughtFor = priceRef.current.value;
 
-    if (!quantity) return setIsError({ ...isError, quantity: true });
-    if (!boughtFor) return setIsError({ ...isError, boughtFor: true });
+    if (!quantity || quantity <= 0)
+      return setIsError({ ...isError, quantity: true });
+    if (!boughtFor || boughtFor < 0)
+      return setIsError({ ...isError, boughtFor: true });
 
     const coinData = {
       addedAt: timestamp(),
