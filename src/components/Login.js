@@ -1,25 +1,22 @@
 import React, { useRef, useState } from 'react';
 import { useFirebase } from '../contexts/firebaseContext';
-import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import ErrorMessage from './ErrorMessage';
 
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login, user, logout } = useFirebase();
-  const history = useHistory();
-  const [error, setError] = useState();
-
+  const { login, user, logout, loginError } = useFirebase();
+  const [errorText, setErrorText] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    try {
-      await login(email, password);
-      history.push('/');
-    } catch {
-      setError('wrong credentials');
+    await login(email, password);
+    if (loginError) {
+      setErrorText(loginError);
+      passwordRef.current.value = '';
     }
   };
 
@@ -27,9 +24,10 @@ const Login = () => {
     return (
       <div className='main-container'>
         <div className='logout-container'>
-          <p>You are already logged in</p>
-          <p>Want to logout?</p>
-          <button onClick={logout}>Logout</button>
+          <h1>Want to logout?</h1>
+          <button className='btn' onClick={logout}>
+            Logout
+          </button>
         </div>
       </div>
     );
@@ -38,6 +36,7 @@ const Login = () => {
     <div className='main-container'>
       <div className='login-form-container'>
         <h2>Sign in</h2>
+        {errorText && <ErrorMessage text={errorText} />}
         <form action='' onSubmit={(e) => handleSubmit(e)}>
           <div className='input-field'>
             <label htmlFor='email'>email</label>
@@ -50,7 +49,6 @@ const Login = () => {
           <button className='btn' type='submit'>
             Login
           </button>
-          {error && <p>{error}</p>}
         </form>
 
         <div className='not-register'>

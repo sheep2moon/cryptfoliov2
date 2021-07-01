@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
+import { useFirebase } from '../../contexts/firebaseContext';
+import { fireStore } from '../../firebase/config';
 import Alert from '../Alert';
 import EditModal from './EditModal';
+import { Link } from 'react-router-dom';
 
-const CoinsTable = ({ docs, coins }) => {
+const PortfolioCoins = ({ docs, coins }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [editCoin, setEditCoin] = useState(null);
   const [alertText, setAlertText] = useState('');
+  const { user } = useFirebase();
+  const collectionRef = fireStore.collection('users').doc(user.uid);
 
   const handleEditButton = (coin) => {
     setIsEdit(true);
     setEditCoin(coin);
+  };
+  const handleDelete = (id) => {
+    collectionRef.collection('coins').doc(id).delete();
   };
 
   return (
@@ -28,7 +36,7 @@ const CoinsTable = ({ docs, coins }) => {
         <span></span>
         <p className='name'>coin</p>
         <p>current price</p>
-        <p>bought for</p>
+        <p className='bought-for'>bought for</p>
         <p>quantity</p>
         <p>profit</p>
         <p className='controls'>edit</p>
@@ -44,7 +52,9 @@ const CoinsTable = ({ docs, coins }) => {
           return (
             <div className='row' key={doc.id}>
               <img src={currentCoin.image} alt='' />
-              <p className='name'>{currentCoin.symbol}</p>
+              <Link to={`/coin/${doc.id}`}>
+                <p className='name'>{currentCoin.symbol}</p>
+              </Link>
               <p className='current-price'>${currentCoin.current_price}</p>
               <p className='bought-for'>${doc.boughtFor}</p>
               <p className='quantity'>{parseFloat(doc.quantity).toFixed(8)}</p>
@@ -58,7 +68,7 @@ const CoinsTable = ({ docs, coins }) => {
               <button className='edit' onClick={() => handleEditButton(doc)}>
                 <AiFillEdit />
               </button>
-              <button className='delete'>
+              <button className='delete' onClick={() => handleDelete(doc.id)}>
                 <RiDeleteBack2Fill />
               </button>
             </div>
@@ -69,4 +79,4 @@ const CoinsTable = ({ docs, coins }) => {
   );
 };
 
-export default CoinsTable;
+export default PortfolioCoins;

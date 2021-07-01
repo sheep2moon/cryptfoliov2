@@ -12,7 +12,7 @@ const Profile = () => {
   };
   return (
     <div className='main-container'>
-      <p>hello {user.email}</p>
+      <h1>hello {user.email}</h1>
       <button className='btn' onClick={handleLogout}>
         logout
       </button>

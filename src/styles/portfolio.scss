@@ -7,10 +7,11 @@ $accent-color: #0b1f73;
 .portfolio-container {
   width: 100%;
   max-width: 1400px;
-  & .wallet-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+}
+.wallet-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2rem;
 }
 .portfolio-list {
   width: 100%;
@@ -166,6 +167,16 @@ $accent-color: #0b1f73;
         width: 2rem;
         margin-right: 0.5rem;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wallet-stats {
+    grid-template-columns: 1fr;
+    & .summary {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

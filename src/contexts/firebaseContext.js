@@ -8,15 +8,14 @@ export const useFirebase = () => useContext(FirebaseContext);
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [loginError, setLoginError] = useState();
 
   const register = (email, password) =>
     auth.createUserWithEmailAndPassword(email, password);
   const login = (email, password) => {
-    try {
-      auth.signInWithEmailAndPassword(email, password);
-    } catch (err) {
-      console.log(err);
-    }
+    auth.signInWithEmailAndPassword(email, password).catch((err) => {
+      setLoginError(err.message);
+    });
   };
   const logout = () => auth.signOut();
   const resetPassword = (email) => auth.sendPasswordResetEmail(email);
@@ -40,6 +39,7 @@ const FirebaseProvider = ({ children }) => {
     resetPassword,
     updateEmail,
     updatePassword,
+    loginError,
   };
 
   return (
