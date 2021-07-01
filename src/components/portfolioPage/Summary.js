@@ -7,7 +7,7 @@ const Summary = ({ docs, coins }) => {
   const [mostProfitableCoin, setMostProfitableCoin] = useState({});
   useEffect(() => {
     let totalValue = 0;
-    let coinProfit = { value: 0, id: '' };
+    let coinProfit = { value: 0, name: '', image: '' };
     let totalProfit = 0;
     let walletChange = 0;
     docs.forEach((doc) => {
@@ -21,7 +21,8 @@ const Summary = ({ docs, coins }) => {
         parseFloat(doc.boughtFor) * parseFloat(doc.quantity);
       if (profit > coinProfit.value) {
         coinProfit.value = profit;
-        coinProfit.id = doc.id;
+        coinProfit.name = doc.coinName;
+        coinProfit.img = currentCoin.image;
       }
       totalProfit += profit;
       walletChange +=
@@ -35,13 +36,28 @@ const Summary = ({ docs, coins }) => {
 
   return (
     <div className='summary-container'>
-      <div className='card'>total value: {walletValue}</div>
-      <div className='card'>total profit: {walletProfit}</div>
-      <div className='card'>
-        most profitable coin: {mostProfitableCoin.id} :{' '}
-        {mostProfitableCoin.value}
+      <div className='summary'>
+        <div className='card'>
+          <p className='card-title'>Portfolio value:</p>
+          <p>{walletValue.toFixed(2)}$</p>
+        </div>
+        <div className='card'>
+          <p className='card-title'>Profit:</p>
+          <p>{walletProfit.toFixed(2)}$</p>
+        </div>
+        <div className='card'>
+          <p className='card-title'>Most profitable coin:</p>
+          <div className='card-coin'>
+            <img src={mostProfitableCoin.img} alt='' />
+            <p className='name'>{mostProfitableCoin.name}</p>
+            <p>{mostProfitableCoin.value.toFixed(2)}$</p>
+          </div>
+        </div>
+        <div className='card'>
+          <p className='card-title'>24h change:</p>
+          <p>{walletChange.toFixed(2)}$</p>
+        </div>
       </div>
-      <div className='card'>24h wallet change: {walletChange}</div>
     </div>
   );
 };
