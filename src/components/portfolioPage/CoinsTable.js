@@ -5,13 +5,11 @@ import Alert from '../Alert';
 import EditModal from './EditModal';
 
 const CoinsTable = ({ docs, coins }) => {
-  console.log(docs, coins);
   const [isEdit, setIsEdit] = useState(false);
   const [editCoin, setEditCoin] = useState(null);
   const [alertText, setAlertText] = useState('');
 
   const handleEditButton = (coin) => {
-    console.log(coin);
     setIsEdit(true);
     setEditCoin(coin);
   };
@@ -39,11 +37,10 @@ const CoinsTable = ({ docs, coins }) => {
       <div className='rows'>
         {docs.map((doc) => {
           const currentCoin = coins.find((coin) => coin.id === doc.id);
-          console.log(currentCoin);
-          console.log(doc);
           const priceDiff =
-            parseFloat(currentCoin.current_price) - parseFloat(doc.boughtFor);
-          console.log(priceDiff);
+            parseFloat(currentCoin.current_price) * parseFloat(doc.quantity) -
+            parseFloat(doc.boughtFor) * parseFloat(doc.quantity);
+
           return (
             <div className='row' key={doc.id}>
               <img src={currentCoin.image} alt='' />

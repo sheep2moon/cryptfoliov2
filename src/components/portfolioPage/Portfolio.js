@@ -5,6 +5,7 @@ import useFirestore from '../../firebase/useFirestore';
 import { fireStore } from '../../firebase/config';
 import CoinsTable from './CoinsTable';
 import '../../styles/portfolio.scss';
+import Summary from './Summary';
 
 const Portfolio = () => {
   const { user } = useFirebase();
@@ -12,13 +13,12 @@ const Portfolio = () => {
   const { docs } = useFirestore(user.uid, 'coins');
   const collectionRef = fireStore.collection('users').doc(user.uid);
 
-  console.log(docs);
   return (
     <div className='main-container'>
       <div className='portfolio-container'>
         <div className='wallet-stats'>
           <div className='chart'>chart</div>
-          <div className='overview'>overview</div>
+          <Summary docs={docs} coins={allCoins} />
         </div>
 
         {allCoins && <CoinsTable coins={allCoins} docs={docs} />}
