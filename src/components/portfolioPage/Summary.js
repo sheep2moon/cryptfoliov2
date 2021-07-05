@@ -40,33 +40,36 @@ const Summary = ({ docs, coins, setChartData }) => {
     setWalletChange(walletChange);
     setChartData(chartData);
     setIsLoading(false);
-  }, [coins, docs]);
+  }, [coins, docs, setChartData]);
 
   return (
     <div className='summary-container'>
       {isLoading ? (
         <p>loading</p>
       ) : (
-        <div className='summary'>
-          <div className='card'>
-            <p className='card-title'>Portfolio value:</p>
-            <p>{walletValue.toFixed(2)}$</p>
-          </div>
-          <div className='card'>
-            <p className='card-title'>Profit:</p>
-            <p>{walletProfit.toFixed(2)}$</p>
-          </div>
-          <div className='card'>
-            <p className='card-title'>Most profitable coin:</p>
-            <div className='card-coin'>
-              <img src={mostProfitableCoin.img} alt='' />
-              <p className='name'>{mostProfitableCoin.name}</p>
-              <p>{mostProfitableCoin.value.toFixed(2)}$</p>
+        <div className='stats'>
+          <h1>Portfolio stats</h1>
+          <div className='summary'>
+            <div className='card'>
+              <p className='card-title'>Portfolio value:</p>
+              <p>{walletValue.toFixed(2)}$</p>
             </div>
-          </div>
-          <div className='card'>
-            <p className='card-title'>24h change:</p>
-            <p>{walletChange.toFixed(2)}$</p>
+            <div className='card'>
+              <p className='card-title'>Profit:</p>
+              <p>{walletProfit.toFixed(2)}$</p>
+            </div>
+            <div className='card'>
+              <p className='card-title'>Most profitable coin:</p>
+              <div className='card-coin'>
+                <img src={mostProfitableCoin.img} alt='' />
+                <p className='name'>{mostProfitableCoin.name}</p>
+                <p>{mostProfitableCoin.value.toFixed(2)}$</p>
+              </div>
+            </div>
+            <div className='card'>
+              <p className='card-title'>24h change:</p>
+              <p>{walletChange.toFixed(2)}$</p>
+            </div>
           </div>
         </div>
       )}

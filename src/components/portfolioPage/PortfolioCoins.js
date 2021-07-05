@@ -35,7 +35,7 @@ const PortfolioCoins = ({ docs, coins }) => {
       <div className='column-names'>
         <span></span>
         <p className='name'>coin</p>
-        <p>current price</p>
+        <p className='current-price'>current price</p>
         <p className='bought-for'>bought for</p>
         <p>quantity</p>
         <p>profit</p>
@@ -51,13 +51,17 @@ const PortfolioCoins = ({ docs, coins }) => {
 
           return (
             <div className='row' key={doc.id}>
-              <img src={currentCoin.image} alt='' />
+              <img src={currentCoin.image} alt='coin icon' />
               <Link to={`/coin/${doc.id}`}>
                 <p className='name'>{currentCoin.symbol}</p>
               </Link>
               <p className='current-price'>${currentCoin.current_price}</p>
               <p className='bought-for'>${doc.boughtFor}</p>
-              <p className='quantity'>{parseFloat(doc.quantity).toFixed(8)}</p>
+              <p className='quantity'>
+                {parseFloat(doc.quantity) > 10
+                  ? parseFloat(doc.quantity).toFixed(4)
+                  : parseFloat(doc.quantity).toFixed(8)}
+              </p>
               <p
                 className={
                   priceDiff > 0 ? 'profit price-green' : 'profit price-red'
