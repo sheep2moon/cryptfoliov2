@@ -56,7 +56,9 @@ const Summary = ({ docs, coins, setChartData }) => {
             </div>
             <div className='card'>
               <p className='card-title'>Profit:</p>
-              <p>{walletProfit.toFixed(2)}$</p>
+              <p className={walletProfit > 0 ? 'price-green' : 'price-red'}>
+                {walletProfit.toFixed(2)}$
+              </p>
             </div>
             <div className='card'>
               <p className='card-title'>Most profitable coin:</p>
@@ -68,7 +70,9 @@ const Summary = ({ docs, coins, setChartData }) => {
             </div>
             <div className='card'>
               <p className='card-title'>24h change:</p>
-              <p>{walletChange.toFixed(2)}$</p>
+              <p className={walletChange > 0 ? 'price-green' : 'price-red'}>
+                {walletChange.toFixed(2)}$
+              </p>
             </div>
           </div>
         </div>

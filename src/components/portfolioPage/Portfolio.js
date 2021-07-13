@@ -8,6 +8,7 @@ import '../../styles/portfolio.scss';
 import Summary from './Summary';
 import Chart from './Chart';
 import { Link } from 'react-router-dom';
+import backgroundImage from '../../img/background.svg';
 
 const Portfolio = () => {
   const { user } = useFirebase();
@@ -15,9 +16,13 @@ const Portfolio = () => {
   const { docs } = useFirestore(user.uid, 'coins');
   const collectionRef = fireStore.collection('users').doc(user.uid);
   const [chartData, setChartData] = useState();
+
   console.log(docs);
   return (
-    <div className='main-container'>
+    <div
+      className='main-container'
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       {docs.length ? (
         <div className='portfolio-container'>
           <div className='wallet-stats'>

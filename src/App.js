@@ -2,7 +2,7 @@ import './styles/app.scss';
 import './styles/forms.scss';
 import Sidebar from './components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/homepage/Home';
 import About from './components/About';
 import CryptoProvider from './contexts/cryptoContext';
 import CoinsList from './components/CoinsList';
