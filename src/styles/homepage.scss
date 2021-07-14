@@ -8,28 +8,80 @@ $accent-color: #0b1f73;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 1rem;
   & .title {
     font-size: 2.5rem;
+    background-color: $dark-color;
+    padding: 1rem;
   }
   & .content {
     display: flex;
     align-items: center;
     & .about-portfolio {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      & p {
-        font-size: 1.4rem;
-      }
       & img {
         width: 600px;
+        border: 1px solid $text-color;
+        border-radius: 0.5rem;
+      }
+      & .text {
+        padding: 1rem;
+        & p {
+          font-size: 1.4rem;
+        }
+        & .links {
+          margin-top: 1rem;
+          display: flex;
+          justify-content: space-around;
+        }
       }
     }
-    & .links {
+  }
+
+  & .best-coins {
+    display: flex;
+    margin-top: 2rem;
+    & .coin-card {
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      background-color: $dark-color;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      & .left-col {
+        display: flex;
+        align-items: center;
+        margin-right: 2rem;
+        & img {
+          width: 60px;
+          margin-right: 0.5rem;
+        }
+        & .col-text {
+          display: flex;
+          flex-direction: column;
+          & .name {
+            display: flex;
+            align-items: center;
+            & .symbol {
+              font-weight: bold;
+            }
+            & .currency {
+              font-size: 0.8rem;
+              vertical-align: middle;
+              margin-left: 0.2rem;
+            }
+          }
+        }
+      }
+      & .right-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+      }
     }
   }
 }
