@@ -10,12 +10,12 @@ const Home = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className='home-container'>
-        <h1 className='title'>Cryptfolio - Cryptocurrency portfolio tracker</h1>
+        <h1 className='title'>Cryptfolio cryptocurrency portfolio tracker</h1>
         <div className='content'>
           <div className='about-portfolio'>
             <img src={portfolioImage} alt='' width='600' />
             <div className='text'>
-              <p>register and start track your portfolio now.</p>
+              <p>register and start tracking your portfolio now.</p>
               <div className='links'>
                 <button className='btn'>Register</button>
                 <button className='btn'>Coins List</button>

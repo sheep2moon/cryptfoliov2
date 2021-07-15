@@ -1,0 +1,44 @@
+$main-color: #070f30;
+$dark-color: #020925;
+$light-color: #04134e;
+$text-color: #dbe6fd;
+$accent-color: #0b1f73;
+
+.about-container {
+  background-color: $dark-color;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & .about {
+    display: flex;
+    font-size: 1.5rem;
+    gap: 4rem;
+    & p {
+      margin-top: 2rem;
+    }
+    & ul {
+      margin-top: 0.5rem;
+      list-style: none;
+      & li {
+        & svg {
+          margin-right: 0.5rem;
+          color: #abee25;
+        }
+      }
+    }
+    & img {
+      margin-top: 0.5rem;
+      width: 200px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .about-container {
+    & .about {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

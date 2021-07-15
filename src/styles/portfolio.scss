@@ -187,7 +187,7 @@ $accent-color: #0b1f73;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .wallet-stats {
     grid-template-columns: 1fr;
     & .summary {

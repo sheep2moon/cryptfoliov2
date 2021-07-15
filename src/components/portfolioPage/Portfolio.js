@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useCrypto } from '../../contexts/cryptoContext';
 import { useFirebase } from '../../contexts/firebaseContext';
 import useFirestore from '../../firebase/useFirestore';
-import { fireStore } from '../../firebase/config';
 import PortfolioCoins from './PortfolioCoins';
 import '../../styles/portfolio.scss';
 import Summary from './Summary';
@@ -14,7 +13,6 @@ const Portfolio = () => {
   const { user } = useFirebase();
   const { allCoins } = useCrypto();
   const { docs } = useFirestore(user.uid, 'coins');
-  const collectionRef = fireStore.collection('users').doc(user.uid);
   const [chartData, setChartData] = useState();
 
   console.log(docs);

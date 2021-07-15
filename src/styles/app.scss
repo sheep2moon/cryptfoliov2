@@ -52,8 +52,13 @@ a {
   align-items: center;
   padding: 0.5rem;
   position: relative;
+  background-size: cover;
 }
-
+@media screen and (max-width: 600px) {
+  .main-container {
+    min-height: calc(100vh - 5rem);
+  }
+}
 .bottom-alert {
   background-color: $text-color;
   color: $dark-color;
