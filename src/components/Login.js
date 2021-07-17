@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useFirebase } from '../contexts/firebaseContext';
 import { Link } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
@@ -6,18 +6,22 @@ import ErrorMessage from './ErrorMessage';
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login, user, logout, loginError } = useFirebase();
+  const { login, user, logout, error } = useFirebase();
   const [errorText, setErrorText] = useState('');
+
+  useEffect(() => {
+    if (error.login) {
+      setErrorText(error.login);
+      passwordRef.current.value = '';
+    }
+  }, [error]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
     await login(email, password);
-    if (loginError) {
-      setErrorText(loginError);
-      passwordRef.current.value = '';
-    }
   };
 
   if (user) {
