@@ -3,30 +3,20 @@ import { useFirebase } from '../contexts/firebaseContext';
 import { useHistory } from 'react-router';
 import '../styles/profile.scss';
 import ErrorMessage from './ErrorMessage';
+import Alert from './Alert';
 
 const Profile = () => {
-  const {
-    user,
-    logout,
-    updatePassword,
-    updateEmail,
-    error,
-    status,
-    setStatus,
-  } = useFirebase();
+  const { user, logout, updatePassword, updateEmail, error } = useFirebase();
   const history = useHistory();
   const newPass = useRef();
   const confirmNewPass = useRef();
   const [errorText, setErrorText] = useState('');
+  const [alertText, setAlertText] = useState('');
   const newEmail = useRef();
 
   useEffect(() => {
     if (error.password) {
       setErrorText(error.password);
-      newPass.current.value = '';
-      confirmNewPass.current.value = '';
-    } else {
-      setErrorText(status.password);
       newPass.current.value = '';
       confirmNewPass.current.value = '';
     }
@@ -35,7 +25,6 @@ const Profile = () => {
     }
     return () => {
       setErrorText('');
-      setStatus({});
     };
   }, [error]);
 
@@ -50,7 +39,15 @@ const Profile = () => {
     if (pass !== confPass) {
       return setErrorText('passwords musts be the same');
     }
-    await updatePassword(pass);
+    const succes = await updatePassword(pass);
+    if (succes) {
+      newPass.current.value = '';
+      confirmNewPass.current.value = '';
+      setAlertText('Password changed successfully');
+      setTimeout(() => {
+        setAlertText('');
+      }, 3000);
+    }
   };
 
   const handleChangeEmail = async () => {
@@ -61,6 +58,7 @@ const Profile = () => {
   return (
     <div className='main-container'>
       <div className='profile-container'>
+        <Alert text={alertText} />
         <div className='head'>
           <h1>{user.email}</h1>{' '}
           <button className='btn' onClick={handleLogout}>

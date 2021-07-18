@@ -9,7 +9,6 @@ const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState({});
-  const [status, setStatus] = useState({});
 
   const register = (email, password) =>
     auth.createUserWithEmailAndPassword(email, password);
@@ -25,14 +24,15 @@ const FirebaseProvider = ({ children }) => {
       setError({ ...error, email: err.message });
     });
   const updatePassword = (password) => {
-    let succes = true;
+    let success = true;
     user.updatePassword(password).catch((err) => {
-      succes = false;
+      success = false;
       setError({ ...error, password: err.message });
     });
-    if (succes) {
+    if (success) {
+      console.log('success');
       setError({ ...error, password: '' });
-      setStatus({ ...status, password: 'Password changed successfully' });
+      return true;
     }
   };
 
@@ -55,8 +55,6 @@ const FirebaseProvider = ({ children }) => {
     updatePassword,
     error,
     setError,
-    status,
-    setStatus,
   };
 
   return (
