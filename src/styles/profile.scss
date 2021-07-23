@@ -30,3 +30,13 @@ $accent-color: #0b1f73;
     box-shadow: 0 0 2px $text-color;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .profile-container {
+    min-width: 0;
+    & .head {
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+  }
+}

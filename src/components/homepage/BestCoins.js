@@ -11,8 +11,8 @@ const BestCoins = () => {
         .slice(0, 5)
         .filter((coin) => coin.id !== 'tether')
         .map((coin) => (
-          <Link to={`/coin/${coin.id}`}>
-            <div key={coin.id} className='coin-card'>
+          <Link key={coin.id} to={`/coin/${coin.id}`}>
+            <div className='coin-card'>
               <div className='left-col'>
                 <img src={coin.image} alt='' />
                 <div className='col-text'>
@@ -32,7 +32,7 @@ const BestCoins = () => {
                       : 'price-red'
                   }
                 >
-                  {coin.price_change_percentage_24h}%
+                  {coin.price_change_percentage_24h.toFixed(2)}%
                 </p>
                 <p
                   className={
@@ -41,7 +41,7 @@ const BestCoins = () => {
                       : 'price-red'
                   }
                 >
-                  {coin.price_change_24h}$
+                  {coin.price_change_24h.toFixed(3)}$
                 </p>
               </div>
             </div>

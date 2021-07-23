@@ -46,14 +46,19 @@ $accent-color: #0b1f73;
     }
   }
 }
+
 @media screen and (max-width: 600px) {
   .home-container {
+    padding: 1rem;
     & .content {
       flex-direction: column;
       & .about-portfolio {
         flex-direction: column;
+        & .text {
+          padding: 0.25rem;
+        }
         & img {
-          width: 400px;
+          width: 100%;
         }
       }
     }
@@ -69,7 +74,7 @@ $accent-color: #0b1f73;
       & .about-portfolio {
         flex-direction: column;
         & img {
-          width: 600px;
+          width: 100%;
         }
       }
     }
@@ -85,11 +90,12 @@ $accent-color: #0b1f73;
   display: flex;
   margin-top: 2rem;
   & .coin-card {
-    margin: 0.5rem;
     border-radius: 0.5rem;
     padding: 1rem;
+    margin: 0.25rem;
     background-color: $dark-color;
     display: flex;
+    justify-content: space-between;
     &:hover {
       background-color: $main-color;
       box-shadow: 0 0 2px $text-color;
