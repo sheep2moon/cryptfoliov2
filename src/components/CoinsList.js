@@ -19,7 +19,7 @@ const CoinsList = () => {
   return (
     <div className='coins-list-container'>
       <div className='search-container'>
-        <h2>Cryptfolio</h2>
+        <h1>Cryptfolio</h1>
         <input
           onChange={(e) => handleSearch(e)}
           type='text'

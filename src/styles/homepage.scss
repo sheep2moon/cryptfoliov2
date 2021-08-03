@@ -32,15 +32,31 @@ $accent-color: #0b1f73;
         border-radius: 0.5rem;
       }
       & .text {
-        padding: 1rem;
+        padding: 2rem;
+        margin-top: 2rem;
         & p {
-          text-align: center;
+          text-align: start;
           font-size: 1.4rem;
         }
         & .links {
           margin-top: 1rem;
           display: flex;
           justify-content: space-around;
+          > a {
+            background-color: $main-color;
+            padding: 1rem 2rem;
+            color: $text-color;
+            border: 1px solid $text-color;
+            font-size: 1.4rem;
+            border-radius: 0.25rem;
+            width: 50%;
+            margin: 1rem;
+            text-align: center;
+            font-weight: 700;
+            &:hover {
+              box-shadow: 0 2px 5px $text-color;
+            }
+          }
         }
       }
     }
@@ -64,6 +80,7 @@ $accent-color: #0b1f73;
     }
     & .best-coins {
       flex-direction: column;
+      width: 100%;
     }
   }
 }
@@ -75,6 +92,7 @@ $accent-color: #0b1f73;
         flex-direction: column;
         & img {
           width: 100%;
+          max-width: 800px;
         }
       }
     }

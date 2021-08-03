@@ -3,6 +3,7 @@ import '../../styles/homepage.scss';
 import backgroundImage from '../../img/background.svg';
 import portfolioImage from '../../img/portfolio.png';
 import BestCoins from './BestCoins';
+import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <div
@@ -15,10 +16,11 @@ const Home = () => {
           <div className='about-portfolio'>
             <img src={portfolioImage} alt='' width='600' />
             <div className='text'>
-              <p>register and start tracking your portfolio now.</p>
+              <p>Dive into cryptocurrency world today.</p>
+              <p>Register for free and start tracking your portfolio.</p>
               <div className='links'>
-                <button className='btn'>Register</button>
-                <button className='btn'>Coins List</button>
+                <Link to='/register'>Register</Link>
+                <Link to='/coins-list'>Browse Coins</Link>
               </div>
             </div>
           </div>
